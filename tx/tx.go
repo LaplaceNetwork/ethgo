@@ -6,11 +6,11 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/inwecrypto/ethgo"
-	"github.com/inwecrypto/ethgo/math"
-	"github.com/inwecrypto/ethgo/rlp"
-	"github.com/inwecrypto/gosecp256k1"
-	"github.com/inwecrypto/sha3"
+	"github.com/blockasaservice/ethgo"
+	"github.com/blockasaservice/ethgo/math"
+	"github.com/blockasaservice/ethgo/rlp"
+	"github.com/blockasaservice/gosecp256k1"
+	"github.com/blockasaservice/sha3"
 )
 
 // const asset .

@@ -9,8 +9,8 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/inwecrypto/ethgo"
-	"github.com/inwecrypto/ethgo/erc20"
+	"github.com/blockasaservice/ethgo"
+	"github.com/blockasaservice/ethgo/erc20"
 
 	"github.com/dynamicgo/slf4go"
 	"github.com/ybbus/jsonrpc"

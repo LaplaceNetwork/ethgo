@@ -9,10 +9,10 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/inwecrypto/gosecp256k1"
-	"github.com/inwecrypto/sha3"
+	secp256k1 "github.com/blockasaservice/ethgo/gosecp256k1"
+	"github.com/blockasaservice/sha3"
 
-	"github.com/inwecrypto/keystore"
+	"github.com/blockasaservice/keystore"
 	"github.com/pborman/uuid"
 )
 
@@ -65,7 +65,7 @@ func KeyFromPrivateKey(privateKeyBytes []byte) (*Key, error) {
 	}, nil
 }
 
-func keystoreKeyToNEOKey(key *keystore.Key) (*Key, error) {
+func keystoreKeyToEthKey(key *keystore.Key) (*Key, error) {
 
 	privateKey := toECDSA(key.PrivateKey, elliptic.P256())
 
@@ -140,7 +140,7 @@ func toBytes(priv *ecdsa.PrivateKey) (b []byte) {
 	return paddedd
 }
 
-func neoKeyToKeyStoreKey(key *Key) (*keystore.Key, error) {
+func ethKeyToKeyStoreKey(key *Key) (*keystore.Key, error) {
 	bytes := toBytes(key.PrivateKey)
 
 	return &keystore.Key{
@@ -157,7 +157,7 @@ func (key *Key) ToBytes() []byte {
 
 // WriteScryptKeyStore write keystore with Scrypt format
 func WriteScryptKeyStore(key *Key, password string) ([]byte, error) {
-	keyStoreKey, err := neoKeyToKeyStoreKey(key)
+	keyStoreKey, err := ethKeyToKeyStoreKey(key)
 
 	if err != nil {
 		return nil, err
@@ -173,7 +173,7 @@ func WriteScryptKeyStore(key *Key, password string) ([]byte, error) {
 
 // WriteLightScryptKeyStore write keystore with Scrypt format
 func WriteLightScryptKeyStore(key *Key, password string) ([]byte, error) {
-	keyStoreKey, err := neoKeyToKeyStoreKey(key)
+	keyStoreKey, err := ethKeyToKeyStoreKey(key)
 
 	if err != nil {
 		return nil, err
@@ -195,5 +195,5 @@ func ReadKeyStore(data []byte, password string) (*Key, error) {
 		return nil, err
 	}
 
-	return keystoreKeyToNEOKey(keystore)
+	return keystoreKeyToEthKey(keystore)
 }

@@ -11,11 +11,11 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/dynamicgo/config"
-	"github.com/inwecrypto/ethgo"
-	"github.com/inwecrypto/ethgo/erc20"
-	"github.com/inwecrypto/ethgo/keystore"
-	"github.com/inwecrypto/ethgo/rpc"
-	"github.com/inwecrypto/ethgo/tx"
+	"github.com/blockasaservice/ethgo"
+	"github.com/blockasaservice/ethgo/erc20"
+	"github.com/blockasaservice/ethgo/keystore"
+	"github.com/blockasaservice/ethgo/rpc"
+	"github.com/blockasaservice/ethgo/tx"
 )
 
 var key *keystore.Key
