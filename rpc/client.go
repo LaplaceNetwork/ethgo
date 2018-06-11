@@ -1,12 +1,9 @@
 package rpc
 
 import (
-	"bytes"
 	"encoding/hex"
-	"encoding/json"
 	"fmt"
 	"math/big"
-	"reflect"
 	"strings"
 
 	"github.com/blockasaservice/ethgo"
@@ -32,17 +29,17 @@ func NewClient(url string) *Client {
 
 func (client *Client) call(method string, result interface{}, args ...interface{}) error {
 
-	var buff bytes.Buffer
+	// var buff bytes.Buffer
 
-	buff.WriteString(fmt.Sprintf("jsonrpc call: %s\n", method))
-	buff.WriteString(fmt.Sprintf("\tresult: %v\n", reflect.TypeOf(result)))
+	// buff.WriteString(fmt.Sprintf("jsonrpc call: %s\n", method))
+	// buff.WriteString(fmt.Sprintf("\tresult: %v\n", reflect.TypeOf(result)))
 
-	for i, arg := range args {
-		data, _ := json.Marshal(arg)
-		buff.WriteString(fmt.Sprintf("\targ(%d): %v\n", i, string(data)))
-	}
+	// for i, arg := range args {
+	// 	data, _ := json.Marshal(arg)
+	// 	buff.WriteString(fmt.Sprintf("\targ(%d): %v\n", i, string(data)))
+	// }
 
-	client.Debug(buff.String())
+	// client.Debug(buff.String())
 
 	response, err := client.jsonrpcclient.Call(method, args...)
 
@@ -54,14 +51,14 @@ func (client *Client) call(method string, result interface{}, args ...interface{
 		return fmt.Errorf("rpc error : %d %s %v", response.Error.Code, response.Error.Message, response.Error.Data)
 	}
 
-	buff.Reset()
+	// buff.Reset()
 
-	responsedata, _ := json.Marshal(response)
+	// responsedata, _ := json.Marshal(response)
 
-	buff.WriteString(fmt.Sprintf("jsonrpc call: %s\n", method))
-	buff.WriteString(fmt.Sprintf("\tresult: %s\n", responsedata))
+	// buff.WriteString(fmt.Sprintf("jsonrpc call: %s\n", method))
+	// buff.WriteString(fmt.Sprintf("\tresult: %s\n", responsedata))
 
-	client.Debug(buff.String())
+	// client.Trace(buff.String())
 
 	return response.GetObject(result)
 }
