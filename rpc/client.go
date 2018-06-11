@@ -12,8 +12,8 @@ import (
 	"github.com/blockasaservice/ethgo"
 	"github.com/blockasaservice/ethgo/erc20"
 
+	"github.com/blockasaservice/jsonrpc"
 	"github.com/dynamicgo/slf4go"
-	"github.com/ybbus/jsonrpc"
 )
 
 // Client neo jsonrpc 2.0 client
