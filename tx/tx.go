@@ -7,9 +7,9 @@ import (
 	"strings"
 
 	"github.com/blockasaservice/ethgo"
+	"github.com/blockasaservice/ethgo/gosecp256k1"
 	"github.com/blockasaservice/ethgo/math"
 	"github.com/blockasaservice/ethgo/rlp"
-	"github.com/blockasaservice/gosecp256k1"
 	"github.com/blockasaservice/sha3"
 )
 
@@ -34,17 +34,23 @@ type Tx struct {
 // NewTx create new eth tx
 func NewTx(nonce uint64, to string, amount, gasPrice *ethgo.Value, gasLimit *big.Int, data []byte) *Tx {
 
-	to = strings.TrimPrefix(to, "0x")
+	var recpoint *[20]byte
 
-	var recipient [20]byte
+	if to != "" {
+		var recipient [20]byte
 
-	toBytes, _ := hex.DecodeString(to)
+		to = strings.TrimPrefix(to, "0x")
 
-	copy(recipient[:], toBytes)
+		toBytes, _ := hex.DecodeString(to)
+
+		copy(recipient[:], toBytes)
+
+		recpoint = &recipient
+	}
 
 	tx := &Tx{
 		AccountNonce: nonce,
-		Recipient:    &recipient,
+		Recipient:    recpoint,
 		Payload:      data,
 		Amount:       (*big.Int)(amount),
 		GasLimit:     (*big.Int)(gasLimit),

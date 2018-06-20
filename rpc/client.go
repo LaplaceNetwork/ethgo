@@ -39,7 +39,7 @@ func (client *Client) call(method string, result interface{}, args ...interface{
 	// 	buff.WriteString(fmt.Sprintf("\targ(%d): %v\n", i, string(data)))
 	// }
 
-	// client.Debug(buff.String())
+	// client.Trace(buff.String())
 
 	response, err := client.jsonrpcclient.Call(method, args...)
 
@@ -108,6 +108,25 @@ func (client *Client) Nonce(address string) (uint64, error) {
 	var data string
 
 	err := client.call("eth_getTransactionCount", &data, address, "latest")
+
+	if err != nil {
+		return 0, err
+	}
+
+	val, err := ReadBigint(data)
+
+	if err != nil {
+		return 0, err
+	}
+
+	return val.Uint64(), nil
+}
+
+// PendingNonce get address send transactions
+func (client *Client) PendingNonce(address string) (uint64, error) {
+	var data string
+
+	err := client.call("eth_getTransactionCount", &data, address, "pending")
 
 	if err != nil {
 		return 0, err
@@ -202,6 +221,7 @@ func (client *Client) GetTokenDecimals(token string) (val *big.Int, err error) {
 	return ReadBigint(valstr)
 }
 
+// SuggestGasPrice .
 func (client *Client) SuggestGasPrice() (*big.Int, error) {
 	var val string
 
@@ -213,6 +233,7 @@ func (client *Client) SuggestGasPrice() (*big.Int, error) {
 	return ReadBigint(val)
 }
 
+// EstimateGas .
 func (client *Client) EstimateGas(from, to, value, data string) (*big.Int, error) {
 	var val string
 
