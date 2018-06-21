@@ -122,11 +122,11 @@ func (client *Client) Nonce(address string) (uint64, error) {
 	return val.Uint64(), nil
 }
 
-// PendingNonce get address send transactions
-func (client *Client) PendingNonce(address string) (uint64, error) {
+// NonceWithTag get address send transactions
+func (client *Client) NonceWithTag(address string, tag string) (uint64, error) {
 	var data string
 
-	err := client.call("eth_getTransactionCount", &data, address, "pending")
+	err := client.call("eth_getTransactionCount", &data, address, tag)
 
 	if err != nil {
 		return 0, err
