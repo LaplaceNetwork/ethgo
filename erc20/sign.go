@@ -55,16 +55,24 @@ func GetDecimals() string {
 	return fmt.Sprintf("0x%s", Decimals)
 }
 
+// GetTotalSupply .
 func GetTotalSupply() string {
 	return fmt.Sprintf("0x%s", TotalSupplyID)
 }
 
+// GetName .
 func GetName() string {
 	return "0x" + SignABI(signName)
 }
 
+// GetSignSymbol .
 func GetSignSymbol() string {
 	return "0x" + SignABI(signSymbol)
+}
+
+// PackNumeric .
+func PackNumeric(value string, bytes int) string {
+	return packNumeric(value, bytes)
 }
 
 func packNumeric(value string, bytes int) string {
