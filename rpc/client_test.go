@@ -46,7 +46,7 @@ func TestBlocksPerSecond(t *testing.T) {
 
 func TestGetBlockByNumber(t *testing.T) {
 
-	blocknumber, err := client.GetBlockByNumber(3438916)
+	blocknumber, err := client.GetBlockByNumber(3514168)
 
 	assert.NoError(t, err)
 
@@ -55,7 +55,7 @@ func TestGetBlockByNumber(t *testing.T) {
 
 func TestGetTransactionByHash(t *testing.T) {
 
-	tx, err := client.GetTransactionByHash("0x73098500f6dcb8a42a7b7b56f095e4b17833b969c9bed25693381c6035c186ae")
+	tx, err := client.GetTransactionByHash("0x0bcbe6ba69251b7269df067849784628595c527962d5f94d57199697d5085cd2")
 
 	assert.NoError(t, err)
 
@@ -64,7 +64,7 @@ func TestGetTransactionByHash(t *testing.T) {
 
 func TestGetTransactionReceipt(t *testing.T) {
 
-	tx, err := client.GetTransactionReceipt("0x83f8c4610363a08eeb7d9dfab7efcf2c2962336a0c946313380b68a75fe11064")
+	tx, err := client.GetTransactionReceipt("0x0bcbe6ba69251b7269df067849784628595c527962d5f94d57199697d5085cd2")
 
 	assert.NoError(t, err)
 
