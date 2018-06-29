@@ -54,9 +54,9 @@ func NewValue(val *big.Float, unit Unit) *Value {
 // CustomerValue .
 func CustomerValue(val *big.Int, decimals *big.Int) *big.Float {
 
-	var val2 = big.NewInt(10)
+	var val2 = big.NewInt(1)
 
-	for i := uint64(1); i < decimals.Uint64(); i++ {
+	for i := uint64(0); i < decimals.Uint64(); i++ {
 		val2 = new(big.Int).Mul(val2, big.NewInt(10))
 	}
 
@@ -65,9 +65,9 @@ func CustomerValue(val *big.Int, decimals *big.Int) *big.Float {
 
 // FromCustomerValue .
 func FromCustomerValue(val *big.Float, decimals *big.Int) *big.Int {
-	var val2 = big.NewInt(10)
+	var val2 = big.NewInt(1)
 
-	for i := uint64(1); i < decimals.Uint64(); i++ {
+	for i := uint64(0); i < decimals.Uint64(); i++ {
 		val2 = new(big.Int).Mul(val2, big.NewInt(10))
 	}
 
