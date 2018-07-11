@@ -5,11 +5,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dynamicgo/config"
 	"github.com/stretchr/testify/assert"
 )
 
-var cnf *config.Config
 var client *Client
 
 func init() {

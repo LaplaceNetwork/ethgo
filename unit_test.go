@@ -7,5 +7,5 @@ import (
 )
 
 func TestValue(t *testing.T) {
-	println(fmt.Sprintf("%d", NewValue(big.NewFloat(0.001), Ada)))
+	println(fmt.Sprintf("%d", NewValue(big.NewFloat(0.015), Ether)))
 }
