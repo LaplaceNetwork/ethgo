@@ -12,7 +12,7 @@ var client *Client
 
 func init() {
 	// cnf, _ = config.NewFromFile("../../conf/test.json")
-	client = NewClient("http://localhost:8545")
+	client = NewClient("https://ropsten.infura.io/OTFK50Z1PCljMOeEAlA9")
 }
 
 func TestBalance(t *testing.T) {
