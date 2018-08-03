@@ -9,10 +9,10 @@ import (
 	"math/big"
 	"strings"
 
-	secp256k1 "github.com/blockasaservice/ethgo/gosecp256k1"
-	"github.com/blockasaservice/sha3"
+	secp256k1 "github.com/openzknetwork/ethgo/gosecp256k1"
+	"github.com/openzknetwork/sha3"
 
-	"github.com/blockasaservice/keystore"
+	"github.com/openzknetwork/keystore"
 	"github.com/pborman/uuid"
 )
 

@@ -37,7 +37,7 @@ import (
 	"sync"
 	"unsafe"
 
-	"github.com/blockasaservice/ethgo/math"
+	"github.com/openzknetwork/ethgo/math"
 )
 
 /*

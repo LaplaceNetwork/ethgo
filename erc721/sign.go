@@ -6,7 +6,7 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/blockasaservice/sha3"
+	"github.com/openzknetwork/sha3"
 )
 
 const (

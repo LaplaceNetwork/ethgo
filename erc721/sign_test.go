@@ -7,12 +7,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/blockasaservice/ethgo/math"
+	"github.com/openzknetwork/ethgo/math"
 
-	"github.com/blockasaservice/ethgo"
-	"github.com/blockasaservice/ethgo/keystore"
-	"github.com/blockasaservice/ethgo/rpc"
-	"github.com/blockasaservice/ethgo/tx"
+	"github.com/openzknetwork/ethgo"
+	"github.com/openzknetwork/ethgo/keystore"
+	"github.com/openzknetwork/ethgo/rpc"
+	"github.com/openzknetwork/ethgo/tx"
 	"github.com/stretchr/testify/require"
 )
 

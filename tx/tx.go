@@ -6,11 +6,11 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/blockasaservice/ethgo"
-	"github.com/blockasaservice/ethgo/gosecp256k1"
-	"github.com/blockasaservice/ethgo/math"
-	"github.com/blockasaservice/ethgo/rlp"
-	"github.com/blockasaservice/sha3"
+	"github.com/openzknetwork/ethgo"
+	"github.com/openzknetwork/ethgo/gosecp256k1"
+	"github.com/openzknetwork/ethgo/math"
+	"github.com/openzknetwork/ethgo/rlp"
+	"github.com/openzknetwork/sha3"
 )
 
 // const asset .

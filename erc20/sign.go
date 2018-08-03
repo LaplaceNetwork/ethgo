@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/blockasaservice/sha3"
+	"github.com/openzknetwork/sha3"
 )
 
 const (

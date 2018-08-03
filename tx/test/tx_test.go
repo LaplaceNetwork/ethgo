@@ -11,11 +11,11 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/dynamicgo/config"
-	"github.com/blockasaservice/ethgo"
-	"github.com/blockasaservice/ethgo/erc20"
-	"github.com/blockasaservice/ethgo/keystore"
-	"github.com/blockasaservice/ethgo/rpc"
-	"github.com/blockasaservice/ethgo/tx"
+	"github.com/openzknetwork/ethgo"
+	"github.com/openzknetwork/ethgo/erc20"
+	"github.com/openzknetwork/ethgo/keystore"
+	"github.com/openzknetwork/ethgo/rpc"
+	"github.com/openzknetwork/ethgo/tx"
 )
 
 var key *keystore.Key

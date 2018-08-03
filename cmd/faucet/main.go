@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/blockasaservice/ethgo/keystore"
+	"github.com/openzknetwork/ethgo/keystore"
 	"github.com/urfave/cli"
 )
 

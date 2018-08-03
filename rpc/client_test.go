@@ -12,7 +12,15 @@ var client *Client
 
 func init() {
 	// cnf, _ = config.NewFromFile("../../conf/test.json")
-	client = NewClient("https://ropsten.infura.io/OTFK50Z1PCljMOeEAlA9")
+	client = NewClient("https://mainnet.infura.io/OTFK50Z1PCljMOeEAlA9")
+}
+
+func TestGasPrice(t *testing.T) {
+	price, err := client.SuggestGasPrice()
+
+	assert.NoError(t, err)
+
+	printResult(price)
 }
 
 func TestBalance(t *testing.T) {
@@ -44,7 +52,7 @@ func TestBlocksPerSecond(t *testing.T) {
 
 func TestGetBlockByNumber(t *testing.T) {
 
-	blocknumber, err := client.GetBlockByNumber(3514168)
+	blocknumber, err := client.GetBlockByNumber(3641043)
 
 	assert.NoError(t, err)
 

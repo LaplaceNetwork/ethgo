@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/blockasaservice/ethgo/rpc"
+	"github.com/openzknetwork/ethgo/rpc"
 
-	"github.com/blockasaservice/ethgo/erc20"
+	"github.com/openzknetwork/ethgo/erc20"
 )
 
 var client *rpc.Client
