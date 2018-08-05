@@ -46,32 +46,52 @@ func main() {
 			Value: "test",
 			Usage: "wallet password",
 		},
+		cli.StringFlag{
+			Name:  "address",
+			Value: "",
+			Usage: "special address",
+		},
 	}
 
 	app.Action = func(c *cli.Context) error {
 		walletpath := c.String("wallet")
 		password := c.String("password")
 
+		address := c.String("address")
+
 		key, err := keystore.NewKey()
 
-		if err != nil {
+		if address == "" {
 
-			return err
+			if err != nil {
+
+				return err
+			}
+
+			err = getEther(key.Address)
+
+			if err != nil {
+				return err
+			}
+		} else {
+			err = getEther(address)
+
+			if err != nil {
+				return err
+			}
 		}
 
-		err = getEther(key.Address)
+		if address == "" {
+			data, err := keystore.WriteScryptKeyStore(key, password)
 
-		if err != nil {
-			return err
+			if err != nil {
+				return err
+			}
+
+			return ioutil.WriteFile(walletpath, data, 0777)
 		}
 
-		data, err := keystore.WriteScryptKeyStore(key, password)
-
-		if err != nil {
-			return err
-		}
-
-		return ioutil.WriteFile(walletpath, data, 0777)
+		return nil
 	}
 
 	if err := app.Run(os.Args); err != nil {
